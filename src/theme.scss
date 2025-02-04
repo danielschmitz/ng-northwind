@@ -1,0 +1,60 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+$light-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      // azure, rose, cyan, magenta
+    ),
+  )
+);
+
+$dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$magenta-palette,
+      // azure, rose, cyan, magenta
+    ),
+  )
+);
+
+$alternative-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$cyan-palette,
+      // azure, rose, cyan, magenta
+    ),
+  )
+);
+
+html {
+  @include mat.all-component-themes($light-theme);
+  
+  .dark-theme {
+    @include mat.all-component-themes($dark-theme);
+    .mat-toolbar {
+      background-color: mat.get-theme-color($dark-theme, on-primary);
+    }
+    .border-color {
+      border-color: mat.get-theme-color($dark-theme, on-primary);
+    }
+  }
+
+  .light-theme {
+    @include mat.all-component-themes($light-theme);
+    .mat-toolbar {
+      background-color: mat.get-theme-color($light-theme, primary);
+      color: mat.get-theme-color($light-theme, primary, 100);
+      .mat-icon {
+        color: mat.get-theme-color($light-theme, primary, 100);
+      }
+    }
+    .border-color {
+      border-color: mat.get-theme-color($light-theme, primary);
+    }
+  }
+}

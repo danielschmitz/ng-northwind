@@ -1,0 +1,6 @@
+<p>dashboard works!</p>
+@if (auth.isUserLoggedIn()) {
+    <span>Welcome {{ auth.getStoredUserData() | json }}</span>
+} @else {
+    <span>Not logged in</span>
+}
