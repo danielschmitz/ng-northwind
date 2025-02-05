@@ -26,7 +26,7 @@ export class CategoryService {
   createCategory(category: Category): Observable<any> {
     const user = this.auth.currentUser;
     if (!user) {
-      throw new Error('User not logged in');
+      return throwError(() => new Error('User not logged in'));
     }
     const categoryCollection = collection(this.firestore, `users/${user.uid}/${this.collectionName}`);
     return from(addDoc(categoryCollection, category)).pipe(
