@@ -1,0 +1,7 @@
+<h3>Create Category</h3>
+<app-loading [loading]="loading">
+    <app-form-category (onSave)="onSave($event)"></app-form-category>
+</app-loading>
+<div class="action-bar">
+  <button mat-stroked-button [routerLink]="['/categories']">Back</button>
+</div>

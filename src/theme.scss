@@ -33,7 +33,7 @@ $alternative-theme: mat.define-theme(
 
 html {
   @include mat.all-component-themes($light-theme);
-  
+
   .dark-theme {
     @include mat.all-component-themes($dark-theme);
     .mat-toolbar {
@@ -58,3 +58,4 @@ html {
     }
   }
 }
+

@@ -1,6 +1,11 @@
+@use './theme' as theme;
+@use "sass:map";
+@use "@angular/material" as mat;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 html,
 body {
@@ -19,4 +24,21 @@ body {
 
 .action-bar {
   @apply flex flex-row justify-end gap-2;
+}
+
+h3 {
+  @apply text-xl p-2 border-b-2 border-l-2;
+}
+
+
+.dark-theme {
+  h3 {
+    border-color: mat.get-theme-color(theme.$dark-theme, on-primary);
+  }
+}
+
+.light-theme {
+  h3 {
+    border-color: mat.get-theme-color(theme.$light-theme, primary);
+  }
 }
